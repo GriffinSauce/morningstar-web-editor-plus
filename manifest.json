@@ -1,0 +1,16 @@
+{
+	"manifest_version": 2,
+	"content_scripts": [
+		{
+			"exclude_globs": [],
+			"include_globs": ["*"],
+			"js": ["dist/index.js"],
+			"matches": ["https://editor-mkii.morningstar.io/*"],
+			"run_at": "document_end"
+		}
+	],
+	"converted_from_user_script": true,
+	"description": "Power user features for the Morningstar web editor",
+	"name": "Morningstar Editor Plus",
+	"version": "1"
+}

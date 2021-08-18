@@ -1,0 +1,15 @@
+{
+  "name": "morningstar-web-editor-plus",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "./build.js -watch"
+  },
+  "devDependencies": {
+    "estrella": "^1.4.1"
+  },
+  "dependencies": {
+    "hotkeys-js": "^3.8.7"
+  }
+}
