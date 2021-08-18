@@ -4,12 +4,14 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "./build.js -watch"
+    "dev": "./build.js -watch",
+    "build": "./build.js -watch"
   },
   "devDependencies": {
     "estrella": "^1.4.1"
   },
   "dependencies": {
+    "crx-hotreload": "^1.0.6",
     "hotkeys-js": "^3.8.7"
   }
 }

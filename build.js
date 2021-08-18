@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-const { build } = require("estrella");
+const { build } = require('estrella');
+
 build({
-	entry: "src/index.ts",
-	outfile: "dist/index.js",
-	bundle: true,
-	// pass any options to esbuild here...
+  entry: ['src/index.ts', 'src/background.ts'],
+  outdir: 'dist',
+  bundle: true,
 });
