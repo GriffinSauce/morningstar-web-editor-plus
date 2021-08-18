@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "./build.js -watch",
-    "build": "./build.js -watch"
+    "build": "./build.js"
   },
   "devDependencies": {
     "estrella": "^1.4.1"
