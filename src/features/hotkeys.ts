@@ -6,7 +6,7 @@ const queryButtonByText = (query) =>
     .pop();
 
 // Action: save preset
-hotkeys('cmd+s', (event) => {
+hotkeys('ctrl+s,cmd+s', (event) => {
   event.preventDefault(); // Prevent default for Windows
 
   const buttonSave = queryButtonByText('Save Preset');
@@ -16,7 +16,7 @@ hotkeys('cmd+s', (event) => {
 });
 
 // Action: next/previous preset
-hotkeys('cmd+left,cmd+right', (event, handler) => {
+hotkeys('ctrl+left,ctrl+right,cmd+left,cmd+right', (event, handler) => {
   event.preventDefault(); // Prevent default for Windows
 
   // NOTE: These element selections and traversions are VERY fragile
@@ -32,12 +32,8 @@ hotkeys('cmd+left,cmd+right', (event, handler) => {
     new RegExp(`(Preset|Expr) ${currentPresetLetter}`).test(button.innerText),
   );
 
-  const addition = {
-    'cmd+left': -1,
-    'cmd+right': 1,
-  }[handler.key];
-
-  const currentIndex = presetButtons.indexOf(currentPresetButton) + addition;
+  const modifier = handler.key.endsWith('left') ? -1 : 1;
+  const currentIndex = presetButtons.indexOf(currentPresetButton) + modifier;
   const nextPresetIndex =
     (presetButtons.length + currentIndex) % presetButtons.length; // Roll over to start/end of the list
 
@@ -47,7 +43,7 @@ hotkeys('cmd+left,cmd+right', (event, handler) => {
 });
 
 // Action: next/previous bank
-hotkeys('cmd+up,cmd+down', (event, handler) => {
+hotkeys('ctrl+up,ctrl+down,cmd+up,cmd+down', (event, handler) => {
   event.preventDefault(); // Prevent default for Windows
 
   // NOTE: These element selections and traversions are VERY fragile
@@ -63,12 +59,8 @@ hotkeys('cmd+up,cmd+down', (event, handler) => {
     new RegExp(`Bank ${currentPresetLetter}`).test(button.innerText),
   );
 
-  const addition = {
-    'cmd+up': -1,
-    'cmd+down': 1,
-  }[handler.key];
-
-  const currentIndex = presetButtons.indexOf(currentPresetButton) + addition;
+  const modifier = handler.key.endsWith('up') ? -1 : 1;
+  const currentIndex = presetButtons.indexOf(currentPresetButton) + modifier;
   const nextPresetIndex =
     (presetButtons.length + currentIndex) % presetButtons.length; // Roll over to start/end of the list
 
@@ -78,7 +70,7 @@ hotkeys('cmd+up,cmd+down', (event, handler) => {
 });
 
 // Action: copy preset
-hotkeys('cmd+c', () => {
+hotkeys('ctrl+c,cmd+c', () => {
   // TODO: copy bank on bank tab
 
   // Ignore when text is selected
@@ -92,7 +84,7 @@ hotkeys('cmd+c', () => {
 });
 
 // Action: paste preset
-hotkeys('cmd+v+DISABLED', () => {
+hotkeys('ctrl+v+DISABLED,cmd+v+DISABLED', () => {
   // Ignore when text is selected
   const selection = window.getSelection();
   if (selection.type === 'Range') return;
