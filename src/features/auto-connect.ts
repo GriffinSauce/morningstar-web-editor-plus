@@ -9,6 +9,7 @@ const checkConnected = () => {
 
 const tryConnect = () => {
   const isConnected = checkConnected();
+  if (isConnected) return;
 
   const deviceList = [...document.querySelectorAll('.dropdown-menu')][2];
   const deviceButtons = [...deviceList.querySelectorAll('a')];

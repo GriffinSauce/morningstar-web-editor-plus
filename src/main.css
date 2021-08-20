@@ -1,0 +1,55 @@
+:root {
+  --bank-list-width: 135px;
+  --preset-list-width: 135px;
+  --nav-width: calc(var(--bank-list-width) + var(--preset-list-width));
+}
+
+/* Is replaced by always-visible list view */
+.mwep-selectors-col {
+  height: 0;
+  overflow: hidden;
+}
+
+/* Reduce width to fit lists on the side */
+.container-fluid:not(.mwep-header-container) {
+  margin-left: var(--nav-width) !important;
+  width: calc(100% - var(--nav-width)) !important;
+}
+
+.mwep-header-container img {
+  width: 225px;
+  display: block;
+  margin-right: auto;
+}
+
+.dropdown-menu.mwep-bankList,
+.dropdown-menu.mwep-presetList {
+  display: block;
+  float: none;
+  position: fixed;
+  top: 75px;
+  bottom: 0;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-top: 1px solid #444;
+  border-right: 1px solid #444;
+  border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+  overflow-y: scroll;
+}
+
+.dropdown-menu.mwep-bankList {
+  left: 0;
+  width: var(--bank-list-width);
+}
+
+.dropdown-menu.mwep-presetList {
+  left: var(--bank-list-width);
+  width: var(--preset-list-width);
+}
+
+.dropdown-menu .dropdown-item {
+  padding: 0.25rem 1rem;
+  cursor: pointer;
+}

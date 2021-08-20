@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "crx-hotreload": "^1.0.6",
-    "hotkeys-js": "^3.8.7"
+    "hotkeys-js": "^3.8.7",
+    "lodash": "^4.17.21"
   }
 }

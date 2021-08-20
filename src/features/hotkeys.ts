@@ -21,15 +21,14 @@ hotkeys('ctrl+left,ctrl+right,cmd+left,cmd+right', (event, handler) => {
 
   // NOTE: These element selections and traversions are VERY fragile
 
-  const currentPresetLetter = document.querySelectorAll<HTMLSpanElement>(
-    '.banklabel',
-  )[1].innerText;
+  const currentPresetLetter =
+    document.querySelectorAll<HTMLSpanElement>('.banklabel')[1].innerText;
 
   const presetList = [...document.querySelectorAll('.dropdown-menu')][1];
   const presetButtons = [...presetList.querySelectorAll('a')];
 
-  const currentPresetButton = presetButtons.find((button) =>
-    new RegExp(`(Preset|Expr) ${currentPresetLetter}`).test(button.innerText),
+  const currentPresetButton = presetButtons.find(
+    (button) => button.innerText.startsWith(currentPresetLetter), // Assumes preset list has been modified
   );
 
   const modifier = handler.key.endsWith('left') ? -1 : 1;
@@ -48,15 +47,14 @@ hotkeys('ctrl+up,ctrl+down,cmd+up,cmd+down', (event, handler) => {
 
   // NOTE: These element selections and traversions are VERY fragile
 
-  const currentPresetLetter = document.querySelectorAll<HTMLSpanElement>(
-    '.banklabel',
-  )[0].innerText;
+  const currentPresetLetter =
+    document.querySelectorAll<HTMLSpanElement>('.banklabel')[0].innerText;
 
   const presetList = [...document.querySelectorAll('.dropdown-menu')][0];
   const presetButtons = [...presetList.querySelectorAll('a')];
 
-  const currentPresetButton = presetButtons.find((button) =>
-    new RegExp(`Bank ${currentPresetLetter}`).test(button.innerText),
+  const currentPresetButton = presetButtons.find(
+    (button) => button.innerText.startsWith(currentPresetLetter), // Assumes preset list has been modified
   );
 
   const modifier = handler.key.endsWith('up') ? -1 : 1;
