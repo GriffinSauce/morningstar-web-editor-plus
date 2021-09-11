@@ -1,6 +1,6 @@
 # morningstar-web-editor-plus
 
-Mods and additions to the Morningstar Web Editor
+A chrome extension that does some mods and additions to the Morningstar Web Editor.
 
 ## Installation
 
