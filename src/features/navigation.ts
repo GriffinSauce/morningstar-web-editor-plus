@@ -21,8 +21,8 @@ presetList.classList.add(`mwep-presetList`);
 const modifyBankList = () => {
   const banks = [...bankList.querySelectorAll('a')];
   banks.forEach((bank) => {
-    // Renmove leading "Bank"
-    // only when relevant, to prevent a loop of changes
+    // Remove leading "Bank"
+    // only when needed, to prevent a loop of DOM changes
     if (bank.innerText.startsWith('Bank')) {
       bank.innerText = bank.innerText.replace(/^Bank /, '');
     }
@@ -43,7 +43,8 @@ const modifyBankList = () => {
 const modifyPresetList = () => {
   const presets = [...presetList.querySelectorAll('a')];
   presets.forEach((preset) => {
-    // Renmove leading "Preset"
+    // Remove leading "Preset"
+    // only when needed, to prevent a loop of DOM changes
     if (preset.innerText.startsWith('Preset')) {
       preset.innerText = preset.innerText.replace(/^Preset /, '');
     }
@@ -86,3 +87,11 @@ bankListObserver.observe(bankList, observerOptions);
 
 const presetListObserver = new MutationObserver(onPresetListChange);
 presetListObserver.observe(presetList, observerOptions);
+
+// Re-render banklist on label change
+// Disconnect-reconnect is not needed here but debounce is still nice
+const bankLabelObserver = new MutationObserver(onBankListChange);
+bankLabelObserver.observe(bankLabel, observerOptions);
+
+const presetLabelObserver = new MutationObserver(onPresetListChange);
+presetLabelObserver.observe(presetLabel, observerOptions);
