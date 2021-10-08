@@ -6,7 +6,10 @@
       "include_globs": ["*"],
       "js": ["index.js"],
       "css": ["main.css"],
-      "matches": ["https://editor-mkii.morningstar.io/*"],
+      "matches": [
+        "https://editor-mkii.morningstar.io/*",
+        "https://editor-mkii-staging.morningstar.io/*"
+      ],
       "run_at": "document_end"
     }
   ],
