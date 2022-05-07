@@ -2,6 +2,8 @@
 
 A chrome extension that does some mods and additions to the Morningstar Web Editor.
 
+*NOTE:* this repo is archived because it is unmaintained. 
+
 ## Installation
 
 Build with `yarn build` and load `/dist` as an unpacked extension.
